@@ -1,5 +1,5 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "montesanto2"
+name = "montesanto"
 compatibility_date = "2024-04-23"
 pages_build_output_dir = "./build/client"
 
@@ -15,8 +15,8 @@ pages_build_output_dir = "./build/client"
 # - https://developers.cloudflare.com/pages/functions/bindings/#environment-variables
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/pages/functions/bindings/#secrets
-# [vars]
-# MY_VARIABLE = "production_value"
+[vars]
+API_URL="https://api.montesanto.cl"
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#workers-ai
