@@ -5,8 +5,6 @@ import { IPost, IPostTag } from "~/interface/post.interface";
 import TextAndImage from "~/components/ui/sections/TextAndImage";
 
 export const loader = async ({ context, params }: LoaderFunctionArgs) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   const api_url = context.cloudflare.env.API_URL;
   const [post] = await Promise.all([
     await PostService.getBySlug(params.slug, api_url),

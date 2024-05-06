@@ -18,8 +18,6 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   const api_url = context.cloudflare.env.API_URL;
 
   const [posts, tags, categories] = await Promise.all([

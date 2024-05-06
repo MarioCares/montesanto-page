@@ -47,7 +47,9 @@ export default function RecentPostCard({ post }: RecentPostCardProps) {
             <ul className="card-meta-tag list-inline">
               {post.PostTags.map((tag: IPostTag) => (
                 <li key={tag.id} className="list-inline-item">
-                  <Link to={tag.description}>{tag.description}</Link>
+                  <Link to={`/publicaciones/tag/${tag.description}`}>
+                    {tag.description}
+                  </Link>
                 </li>
               ))}
             </ul>

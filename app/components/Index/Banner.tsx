@@ -38,7 +38,7 @@ export default function Banner({ tags }: BannerProps) {
             <ul className="widget-list-inline mb-4">
               {tags.map((tag: string) => (
                 <li key={`banner-tag-${tag}`} className="list-inline-item">
-                  <Link to={`/publicaciones/categoria/${tag}`}>{tag}</Link>
+                  <Link to={`/publicaciones/tag/${tag}`}>{tag}</Link>
                 </li>
               ))}
             </ul>
