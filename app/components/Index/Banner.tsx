@@ -2,7 +2,7 @@ import { Border, Shape1, Shape2, Shape3 } from "~/components/ui/svg/shapes";
 import { Link } from "@remix-run/react";
 
 type BannerProps = {
-  tags: Array<string>;
+  tags: string[];
 };
 export default function Banner({ tags }: BannerProps) {
   const currentYear = new Date().getFullYear();

@@ -1,8 +1,8 @@
 import { Link } from "@remix-run/react";
 
 type SidebarProps = {
-  categories: Array<string>;
-  tags: Array<string>;
+  categories: { [key: string]: number };
+  tags: string[];
 };
 
 export default function Sidebar({ categories, tags }: SidebarProps) {
@@ -13,7 +13,7 @@ export default function Sidebar({ categories, tags }: SidebarProps) {
           <span>Únete a nuestro newsletter</span>
         </h4>
         <form
-          action="#!"
+          action="#"
           method="post"
           name="mc-embedded-subscribe-form"
           target="_blank"
@@ -52,13 +52,14 @@ export default function Sidebar({ categories, tags }: SidebarProps) {
           <span>Secciones</span>
         </h4>
         <ul className="list-unstyled widget-list">
-          {categories.map((category: string) => (
+          {Object.keys(categories).map((category: string) => (
             <li key={category}>
               <Link
                 to={`/publicaciones/categoria/${category}`}
                 className="d-flex"
               >
-                {category} <small className="ml-auto">(4)</small>
+                {category}{" "}
+                <small className="ml-auto">({categories[category]})</small>
               </Link>
             </li>
           ))}

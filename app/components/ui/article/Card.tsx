@@ -1,4 +1,4 @@
-import { IPost } from "~/interface/post.interface";
+import { IPost, IPostTag } from "~/interface/post.interface";
 import { Link } from "@remix-run/react";
 
 type RecentPostCardProps = {
@@ -17,19 +17,24 @@ export default function RecentPostCard({ post }: RecentPostCardProps) {
       </div>
       <div className="card-body">
         <h3 className="mb-3">
-          <Link className="post-title" to={post.slug}>
+          <Link className="post-title" to={`/publicacion/${post.slug}`}>
             {post.title}
           </Link>
         </h3>
         <ul className="card-meta list-inline">
           <li className="list-inline-item">
-            <a href="author-single.html" className="card-meta-author">
+            <Link
+              to={`/publicaciones/publicador/${post.publisher}`}
+              className="card-meta-author"
+            >
               <img
                 alt={post.publisher}
-                src="https://demo.themefisher.com/reader-bulma/images/john-doe.jpg"
+                src={`/images/avatar/${post.publisher
+                  .toLowerCase()
+                  .replaceAll(" ", "")}.png`}
               />
               <span>{post.publisher}</span>
-            </a>
+            </Link>
           </li>
           <li className="list-inline-item">
             <i className="ti-timer"></i>2 Min To Read
@@ -40,9 +45,9 @@ export default function RecentPostCard({ post }: RecentPostCardProps) {
           </li>
           <li className="list-inline-item">
             <ul className="card-meta-tag list-inline">
-              {post.tags?.map((tag: string) => (
-                <li key={tag} className="list-inline-item">
-                  <Link to={tag}>{tag}</Link>
+              {post.PostTags.map((tag: IPostTag) => (
+                <li key={tag.id} className="list-inline-item">
+                  <Link to={tag.description}>{tag.description}</Link>
                 </li>
               ))}
             </ul>
@@ -51,7 +56,10 @@ export default function RecentPostCard({ post }: RecentPostCardProps) {
         <div className="content">
           <div dangerouslySetInnerHTML={{ __html: post.introduction }} />
         </div>
-        <Link to={post.slug} className="btn btn-outline-primary">
+        <Link
+          to={`/publicacion/${post.slug}`}
+          className="btn btn-outline-primary"
+        >
           Leer más
         </Link>
       </div>

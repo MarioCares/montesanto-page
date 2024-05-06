@@ -1,4 +1,5 @@
 import { FooterBorder } from "~/components/ui/svg/shapes";
+import { Link } from "@remix-run/react";
 
 export default function Footer() {
   return (
@@ -8,14 +9,14 @@ export default function Footer() {
       <div className="container">
         <div className="columns is-multiline is-align-items-center">
           <div className="column is-2-desktop has-text-centered mb-4">
-            <a href="index.html">
+            <Link to={"/"}>
               <img
                 className="img-fluid"
-                width="100px"
-                src="images/logo.png"
+                width="104"
+                src="/images/logo.png"
                 alt="Reader | Hugo Personal Blog Template"
               />
-            </a>
+            </Link>
           </div>
           <div className="column is-12">
             <div className="border-bottom border-default"></div>

@@ -1,3 +1,9 @@
+export interface IPostTag {
+  id: number;
+  postId: number;
+  description: string;
+}
+
 export interface IPost {
   id: number;
   slug: string;
@@ -9,5 +15,5 @@ export interface IPost {
   title: string;
   publisher: string;
   tipe: string;
-  tags?: Array<never>;
+  PostTags: IPostTag[];
 }

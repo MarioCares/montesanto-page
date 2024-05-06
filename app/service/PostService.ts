@@ -3,6 +3,11 @@ const get = async (api: string) => {
   return await response.json();
 };
 
+const getBySlug = async (slug: string | undefined, api: string) => {
+  const response = await fetch(`${api}/publicacion/${slug}`);
+  return await response.json();
+};
+
 const getTags = async (api: string) => {
   const response = await fetch(`${api}/publicacion/tags`);
   return await response.json();
@@ -15,6 +20,7 @@ const getCategories = async (api: string) => {
 
 export const PostService = {
   get,
+  getBySlug,
   getTags,
   getCategories,
 };

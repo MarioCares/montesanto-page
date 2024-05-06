@@ -2,7 +2,7 @@ import { IPost } from "~/interface/post.interface";
 import RecentPostCard from "~/components/ui/article/Card";
 
 type PostProps = {
-  posts: Array<IPost>;
+  posts: IPost[];
 };
 
 export default function Post({ posts }: PostProps) {
@@ -16,19 +16,13 @@ export default function Post({ posts }: PostProps) {
 
       <ul className="pagination justify-content-center">
         <li className="page-item page-item active ">
-          <a href="#!" className="page-link">
-            1
-          </a>
+          <button className="page-link">1</button>
         </li>
         <li className="page-item">
-          <a href="#!" className="page-link">
-            2
-          </a>
+          <button className="page-link">2</button>
         </li>
         <li className="page-item">
-          <a href="#!" className="page-link">
-            &raquo;
-          </a>
+          <button className="page-link">&raquo;</button>
         </li>
       </ul>
     </div>

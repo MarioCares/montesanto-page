@@ -30,23 +30,24 @@ export const loader = async ({ context }: LoaderFunctionArgs) => {
   return json({ posts, tags, categories });
 };
 
-// tema => https://demo.themefisher.com/reader-bulma/index.html
+// tema => https://github.com/themefisher/reader-bulma/tree/main
 
 export default function Index() {
-  const { posts, tags, categories } = useLoaderData<typeof loader>();
+  const { posts, tags, categories } = useLoaderData<typeof loader>() as {
+    posts: IPost[];
+    tags: string[];
+    categories: { [key: string]: number };
+  };
 
   return (
     <>
-      <Banner tags={tags as Array<string>} />
+      <Banner tags={tags} />
       <FeaturedPost />
       <section className="section-sm">
         <div className="container">
           <div className="columns is-multiline is-desktop is-justify-content-center">
-            <Post posts={posts as IPost[]} />
-            <Sidebar
-              categories={categories as Array<string>}
-              tags={tags as Array<string>}
-            />
+            <Post posts={posts} />
+            <Sidebar categories={categories} tags={tags} />
           </div>
         </div>
       </section>
